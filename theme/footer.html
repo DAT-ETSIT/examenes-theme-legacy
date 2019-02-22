@@ -1,0 +1,31 @@
+  </main>
+
+  <footer>
+    <p class="cfa">
+      ¡Ayúdanos a mantener el repositorio de exámenes actualizado!</br>
+      Envía tus exámenes a dat@sscc.etsit.upm.es
+    </p>
+    <p>
+      <i>Delegación de Alumnos de Telecomunicación (DAT)</i><br>
+      <i>Hosting ofrecido por el Gabinete de Informática y Comunicaciones</i>
+    </p>
+  </footer>
+
+  <script>
+
+    (function(){
+
+      var parent = document.querySelector('tr:not(.indexhead)');
+      parent.classList.add('parent');
+
+      // Make all the icon links unfocusable with tab
+      var icolinks = document.querySelectorAll('.indexcolicon a');
+      [].forEach.call(icolinks, function(link) {
+
+        link.setAttribute('tabindex', '-1');
+
+      });
+
+    })();
+
+  </script>

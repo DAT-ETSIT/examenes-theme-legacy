@@ -1,0 +1,63 @@
+# Activa el listado de directorios (para que se muestre todo el contenido en
+# /examenes)
+Options +Indexes
+
+IndexOptions +Charset=UTF-8 +FancyIndexing +IgnoreCase +FoldersFirst +XHTML +HTMLTable +SuppressRules +SuppressDescription +SuppressSize +SuppressLastModified +NameWidth=* +IconsAreLinks
+
+# Inserta algunos <meta>s en la cabecera de las páginas del índice
+# (UTF-8, ancho fijo para móviles, etc.)
+IndexHeadInsert "<meta charset='UTF-8'><meta name='viewport' content='width=device-width, initial-scale=1'><meta http-equiv='X-UA-Compatible' content='IE=edge'>"
+
+# Evita mostrar el directorio con el tema entre los exámenes
+IndexIgnore /examenes/theme
+
+#
+# TEMA PARA EXÁMENES
+# (basado en https://github.com/ramlmn/Apache-Directory-Listing)
+#
+
+# Iconos generales (para directorios, etc.)
+AddIcon /examenes/theme/icons/blank.svg ^^BLANKICON^^
+AddIcon /examenes/theme/icons/folder.svg ^^DIRECTORY^^
+AddIcon /examenes/theme/icons/folder-home.svg ..
+AddIconByType (IMG,/examenes/theme/icons/img.svg) image/*
+AddIconByType (SND,/examenes/theme/icons/audio.svg) audio/*
+AddIconByType (VID,/examenes/theme/icons/video.svg) video/*
+
+# Iconos para cada extensión
+# (en realidad para nuestro uso sobra el 99%...)
+DefaultIcon /examenes/theme/icons/unknown.svg
+AddIcon /examenes/theme/icons/archive.svg .zip .7z .bz2 .cab .gz .tar .rar
+AddIcon /examenes/theme/icons/audio.svg .aac .aif .aifc .aiff .ape .au .flac .iff .m4a .mid .mp3 .mpa .ra .wav .wma .f4a .f4b .oga .ogg .xm .it .s3m .mod
+AddIcon /examenes/theme/icons/bin.svg .bin .hex
+AddIcon /examenes/theme/icons/code.svg .xml
+AddIcon /examenes/theme/icons/doc.svg .doc .docx .docm .dot .dotx .dotm .log .msg .odt .pages .rtf .tex .wpd .wps
+AddIcon /examenes/theme/icons/img.svg .bmp .png .tiff .tif .gif .jpg .jpeg .jpe .psd .ai .ico
+AddIcon /examenes/theme/icons/spreadsheet.svg .xlsx .xlsm .xltx .xltm .xlam .xlr .xls .csv
+AddIcon /examenes/theme/icons/presentation.svg .ppt .pptx .pot .potx .pptm .potm .xps
+AddIcon /examenes/theme/icons/c++.svg .cpp
+AddIcon /examenes/theme/icons/c.svg .c
+AddIcon /examenes/theme/icons/css3.svg .css .sass .scss .less
+AddIcon /examenes/theme/icons/font.svg .ttf .TTF .woff .WOFF .woff2 .WOFF2 .otf .OTF
+AddIcon /examenes/theme/icons/h.svg .h
+AddIcon /examenes/theme/icons/html5.svg .html .xhtml .shtml .htm .URL .url
+AddIcon /examenes/theme/icons/info.svg .nfo .info
+AddIcon /examenes/theme/icons/iso.svg .iso .img
+AddIcon /examenes/theme/icons/java.svg .jar .java
+AddIcon /examenes/theme/icons/js.svg .js .json
+AddIcon /examenes/theme/icons/markdown.svg .md
+AddIcon /examenes/theme/icons/package.svg .pkg .dmg .rpm .deb
+AddIcon /examenes/theme/icons/pdf.svg .pdf
+AddIcon /examenes/theme/icons/php.svg .php .phtml
+AddIcon /examenes/theme/icons/py.svg .py
+AddIcon /examenes/theme/icons/rb.svg .rb
+AddIcon /examenes/theme/icons/script.svg .bat .BAT .cmd .sh .ps .exe .EXE .msi .MSI
+AddIcon /examenes/theme/icons/sql.svg .sql
+AddIcon /examenes/theme/icons/text.svg .txt .cnf .conf .map .yaml
+AddIcon /examenes/theme/icons/vector.svg .svg .svgz
+AddIcon /examenes/theme/icons/video.svg .asf .asx .avi .flv .mkv .mov .mp4 .mpg .rm .srt .swf .vob .wmv .m4v .f4v .f4p .ogv
+
+# Inserción de los ficheros del tema en todas las páginas indexadas
+HeaderName /examenes/theme/header.html
+ReadmeName /examenes/theme/footer.html
+IndexStyleSheet "/examenes/theme/table.css"
